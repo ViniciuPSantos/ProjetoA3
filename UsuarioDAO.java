@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 public class UsuarioDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/meu_banco";
     private static final String USUARIO = "root";
-    private static final String SENHA = "anima123";
+    private static final String SENHA = "senha";
     
     public boolean autenticar(String email, String senha){
         boolean autenticado = false;
