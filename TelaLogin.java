@@ -9,7 +9,7 @@ public class TelaLogin extends JFrame {
     public TelaLogin(){
         setTitle("Login");
         setSize(300,180);
-        setDefaultCloseOperatio(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
         JPanel painel = new JPanel(new GridLayout(3, 2, 10, 10));
