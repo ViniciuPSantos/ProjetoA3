@@ -1,8 +1,10 @@
-create DATABASE meu_banco;
+create database meu_banco;
 use meu_banco;
-CREATE TABLE Usuario (
-     id INT AUTO_INCREMENT PRIMARY KEY,
-     nome VARCHAR(100) not null,
-     email VARCHAR(100) not null UNIQUE,
-     senha VARCHAR(255) not null
+create table usuario (
+	id int auto_increment primary key,
+    nome varchar(100) not null,
+    email varchar(100) not null unique,
+    senha varchar(255) not null, 
+    criado_em timestamp default current_timestamp
 );
+select * from usuario;
