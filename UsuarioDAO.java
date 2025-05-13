@@ -61,6 +61,6 @@ public class UsuarioDAO {
     
     public static void main(String[] args) {
         UsuarioDAO dao = new UsuarioDAO();
-        dao.cadastrarUsuario("Vinicius", "vinicius@gmail.com", "12345");
+        //dao.cadastrarUsuario("Vinicius", "vinicius@gmail.com", "12345");
     }
 }
