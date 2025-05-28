@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 public class DBConnector {
     private String URL = "jdbc:mysql://192.168.0.159:3306/projetoa3";
-    private String USER = "root";
-    private String PASSWORD = "password"; //substitua pela sua senha
+    private String USER = "vini";
+    private String PASSWORD = "projetofaculdadea3"; //substitua pela sua senha
 
     public Connection conectar() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);

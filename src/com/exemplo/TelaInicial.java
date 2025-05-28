@@ -40,7 +40,7 @@ public class TelaInicial extends JFrame {
         JPanel botoesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
         JButton loginButton = new JButton("Login");
         JButton cadastrarButton = new JButton("Cadastrar-se");
-        JButton navegarButton = new JButton("Navegar sem login");
+        JButton navegarButton = new JButton("Navegar como visitante");
 
         // Adicionando ActionListener ao botão "Login"
         loginButton.addActionListener(new ActionListener() {
