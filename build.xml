@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ProjetoA3" default="jar" basedir=".">
+    <description>
+        Projeto A3 - Construção de um JAR
+    </description>
+
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="dist.dir" value="${build.dir}/dist"/>
+    <property name="lib.dir" value="${build.dir}/lib"/>
+    <property name="jar.dir" value="${build.dir}/jar"/>
+    <property name="main.class" value="com.exemplo.Main"/>
+
+    <path id="project.classpath">
+        <pathelement location="${classes.dir}"/>
+        <fileset dir="${lib.dir}" includes="mysql-connector-j-9.3.0.jar"/>
+        </path>
+
+<target name="init" description="Cria os diretórios de build">
+        <mkdir dir="$classes.dir"/>
+        <mkdir dir="$dist.dir"/>
+</target>
+
+<target name="clean" description="Limpa os artefatos do build">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+</target>
+
+ <target name="compile" depends="init" description="Compila o código fonte">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath" includeantruntime="false">
+            <compilerarg value="-Xlint:all"/> </javac>
+</target>
+
+<target name="jar" depends="compile" description="Gera o arquivo JAR do projeto">
+        <jar destfile="${dist.dir}/${jar.name}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+        <echo message="JAR criado em: ${dist.dir}/${jar.name}"/>
+</target>
+
+<target name="run" depends="jar" description="Executa a aplicação">
+        <java jar="${dist.dir}/${jar.name}" fork="true"/>
+</target>
+
+</project>
