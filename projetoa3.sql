@@ -57,5 +57,14 @@ CREATE TABLE IF NOT EXISTS itens_pedido (
 SELECT id, nome, valor, imagens1_path FROM produtos;
 ALTER TABLE itens_pedido ADD COLUMN tamanho VARCHAR(50);
 ALTER TABLE pedidos ADD COLUMN email VARCHAR(255);
-select * from usuarios;
-
+alter table produtos add column tipo_produto enum('ROUPA', 'TENIS') not null after valor;
+alter table produtos drop column quantidade_p, drop column quantidade_m, drop column quantidade_g;
+create table if not exists estoque_variacoes(
+	id int auto_increment primary key,
+    produto_id int not null,
+    tamanho_descricao varchar(100) not null comment 'Ex P, M, G 38, 39, 40, 41, 42, 43',
+    foreign key (produto_id) references produtos(id) on delete cascade, 
+    unique key uk_produto_tamanho (produto_id , tamanho_descricao)
+);
+alter table estoque_variacoes add column quantidade int not null default 0 comment 'Quantidade em estoque para esta variação de tamanho/numeração' after tamanho_descricao;
+alter table pedidos modify column status enum('pendente', 'processando', 'enviado', 'entregue', 'cancelado', 'AGUARDANDO_PAGAMENTO_PIX') default 'pendente';
